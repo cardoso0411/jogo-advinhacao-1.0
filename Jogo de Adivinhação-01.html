@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo de Adivinhação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      text-align: center;
+      padding-top: 50px;
+      color: #fff;
+    }
+
+    .container {
+      background-color: rgba(0,0,0,0.2);
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Jogo de Adivinhação</h1>
+  <p>Tente adivinhar um número de 1 a 10</p>
+  <input type="number" id="guess" min="1" max="10" placeholder="Digite seu palpite" />
+  <br>
+  <button onclick="verificarPalpite()">Adivinhar</button>
+  <p id="tentativasRestantes">Tentativas restantes: 3</p>
+  <p id="message"></p>
+  <button onclick="reiniciarJogo()" style="display:none;" id="btnReiniciar">Jogar Novamente</button>
+</div>
+
+<script>
+  let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+  let tentativas = 3;
+  let acertou = false;
+
+  function verificarPalpite() {
+    const guessInput = document.getElementById("guess");
+    const palpite = parseInt(guessInput.value);
+    const message = document.getElementById("message");
+
+    if (palpite < 1 || palpite > 10 || isNaN(palpite)) {
+      message.textContent = "Digite um número válido entre 1 e 10!";
+      return;
+    }
+
+    tentativas--;
+
+    if (palpite === numeroSecreto) {
+      message.textContent = "🎉 Parabéns! Você acertou!";
+      acertou = true;
+      fimDeJogo();
+    } else if (tentativas > 0) {
+      message.textContent = `❌ Errado! Tente novamente.`;
+      document.getElementById("tentativasRestantes").textContent = `Tentativas restantes: ${tentativas}`;
+    } else {
+      message.textContent = `😢 Você perdeu! O número era ${numeroSecreto}.`;
+      fimDeJogo();
+    }
+
+    guessInput.value = "";
+  }
+
+  function fimDeJogo() {
+    document.getElementById("btnReiniciar").style.display = "inline";
+    document.getElementById("tentativasRestantes").style.display = "none";
+  }
+
+  function reiniciarJogo() {
+    numeroSecreto = Math.floor(Math.random() * 10) + 1;
+    tentativas = 3;
+    acertou = false;
+    document.getElementById("message").textContent = "";
+    document.getElementById("tentativasRestantes").textContent = "Tentativas restantes: 3";
+    document.getElementById("tentativasRestantes").style.display = "block";
+    document.getElementById("btnReiniciar").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
