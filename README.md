@@ -81,7 +81,3 @@ Ideias para expandir o projeto:
 - [ ] Histórico de jogos
 - [ ] Versão com números maiores
 - [ ] Modo multiplayer
-
-## 📄 Licença
-
-Este projeto está disponível sob a licença MIT. Sinta-se livre para usar, modificar e distribuir.
