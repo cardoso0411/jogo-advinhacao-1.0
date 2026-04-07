@@ -52,16 +52,6 @@ cd jogo-advinhação_1.0
 # Abra "Jogo de Adivinhação-01.html" com seu navegador
 ```
 
-## 🎮 Como Funciona
-
-### Lógica do Jogo:
-1. Um número aleatório entre 1 e 10 é gerado quando a página carrega
-2. O jogador faz palpites e recebe feedback
-3. O número de tentativas diminui a cada palpite inválido
-4. O jogo termina quando:
-   - O jogador acerta o número (vitória)
-   - O jogador fica sem tentativas (derrota)
-
 ## 🎨 Design
 
 - **Gradiente Azul Degradê**: Fundo atraente de `#4facfe` a `#00f2fe`
@@ -77,7 +67,4 @@ Ideias para expandir o projeto:
 - [ ] Placar de pontuação
 - [ ] Sons de efeito (acerto/erro)
 - [ ] Animações mais fluidas
-- [ ] Diferentes temas de cores
-- [ ] Histórico de jogos
 - [ ] Versão com números maiores
-- [ ] Modo multiplayer
